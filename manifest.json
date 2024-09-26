@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Real Estate Price Calculator",
+  "version": "1.0",
+  "description": "Calculates price/20/12 for each house listing and displays it on the image.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://www.immobilienscout24.de/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.immobilienscout24.de/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
